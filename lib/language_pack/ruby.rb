@@ -44,16 +44,27 @@ class LanguagePack::Ruby < LanguagePack::Base
   end
 
   def compile
+    puts ["compile", __LINE__].inspect
     Dir.chdir(build_path)
+    puts ["compile", __LINE__].inspect
     install_ruby
+    puts ["compile", __LINE__].inspect
     setup_language_pack_environment
+    puts ["compile", __LINE__].inspect
     allow_git do
+      puts ["compile", __LINE__].inspect
       install_language_pack_gems
+      puts ["compile", __LINE__].inspect
       build_bundler
+      puts ["compile", __LINE__].inspect
       create_database_yml
+      puts ["compile", __LINE__].inspect
       install_binaries
+      puts ["compile", __LINE__].inspect
       run_assets_precompile_rake_task
+      puts ["compile", __LINE__].inspect
     end
+    puts ["compile", __LINE__].inspect
   end
 
 private
